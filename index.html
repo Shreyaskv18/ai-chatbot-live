@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Chatbot Widget</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CHAT TOGGLE BUTTON -->
+  <button class="chat-toggle" onclick="toggleChat()">
+    Chat with us
+  </button>
+
+  <!-- CHAT WIDGET -->
+  <div class="chat-widget" id="chatWidget">
+
+    <!-- HEADER -->
+    <div class="chat-header">
+      AI Support
+      <span class="close-btn" onclick="toggleChat()">×</span>
+    </div>
+
+    <!-- BODY -->
+    <div class="chat-body" id="chatBody">
+      <div class="message bot">
+        Hi 👋 How can I help you today?
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="chat-footer">
+      <input 
+        type="text" 
+        id="userInput" 
+        placeholder="Type your message..."
+        onkeydown="handleEnter(event)"
+      >
+      <button onclick="sendMessage()">Send</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
