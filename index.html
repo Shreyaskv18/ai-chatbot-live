@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>AI Chatbot Widget</title>
+  <meta name="viewport" content="width-device,intial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+
+
 </head>
+
 <body>
 
   <!-- CHAT TOGGLE BUTTON -->
@@ -30,12 +35,7 @@
 
     <!-- FOOTER -->
     <div class="chat-footer">
-      <input 
-        type="text" 
-        id="userInput" 
-        placeholder="Type your message..."
-        onkeydown="handleEnter(event)"
-      >
+      <input type="text" id="userInput" placeholder="Type your message..." onkeydown="handleEnter(event)">
       <button onclick="sendMessage()">Send</button>
     </div>
 
@@ -43,4 +43,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
