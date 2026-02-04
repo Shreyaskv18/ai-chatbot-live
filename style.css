@@ -1,3 +1,7 @@
+/* ===============================
+   PREMIUM CHATBOT CSS
+=============================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -51,6 +55,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
 .close-btn {
@@ -66,6 +71,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  scroll-behavior: smooth;
 }
 
 /* MESSAGES */
@@ -83,18 +89,23 @@ body {
   background: #f3f4f6;
   color: #111;
   align-self: flex-start;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .user {
   background: linear-gradient(135deg, #2563eb, #3b82f6);
   color: white;
   align-self: flex-end;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 /* FOOTER */
 .chat-footer {
   display: flex;
+  flex-direction: column;
+  gap: 5px;
   border-top: 1px solid #e5e7eb;
+  padding: 5px;
 }
 
 .chat-footer input {
@@ -103,6 +114,7 @@ body {
   border: none;
   outline: none;
   font-size: 14px;
+  border-radius: 12px;
 }
 
 .chat-footer input:focus {
@@ -116,11 +128,26 @@ body {
   color: white;
   cursor: pointer;
   transition: 0.2s ease;
+  border-radius: 12px;
+}
+
+/* QUICK BUTTONS */
+.quick-btn {
+  margin: 2px;
+  padding: 5px 10px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.2s ease;
 }
 
 /* HOVER EFFECTS */
 .chat-toggle:hover,
-.chat-footer button:hover {
+.chat-footer button:hover,
+.quick-btn:hover {
   opacity: 0.9;
   transform: scale(1.05);
 }
@@ -175,19 +202,26 @@ body {
   }
 }
 
-/* QUICK BUTTONS */
-.quick-btn {
-  margin: 2px;
-  padding: 5px 10px;
-  background: #3b82f6;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 12px;
-  transition: 0.2s ease;
+/* VARIANTS */
+
+/* Variant A: Coaching Institute */
+.variant-coaching .chat-header {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
 }
 
-.quick-btn:hover {
-  opacity: 0.9;
+.variant-coaching .user {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+}
+
+/* Variant B: E-commerce / Shop Support */
+.variant-ecommerce .chat-header {
+  background: linear-gradient(135deg, #ff6f61, #ff3b30);
+}
+
+.variant-ecommerce .user {
+  background: linear-gradient(135deg, #ff6f61, #ff3b30);
+}
+
+.variant-ecommerce .quick-btn {
+  background: #ff3b30;
 }

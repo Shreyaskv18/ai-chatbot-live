@@ -3,29 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium AI Chatbot</title>
+  <title>Premium Chatbot</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- CHAT TOGGLE BUTTON -->
-  <button class="chat-toggle" onclick="toggleChat()">Chat with us</button>
+<!-- CHAT TOGGLE BUTTON -->
+<button class="chat-toggle" onclick="toggleChat()">Chat With Us</button>
 
-  <!-- CHAT WIDGET -->
-  <div class="chat-widget" id="chatWidget">
-    <div class="chat-header">
-      Chat Support
-      <span class="close-btn" onclick="toggleChat()">×</span>
-    </div>
-    <div class="chat-body" id="chatBody"></div>
-    <div class="chat-footer">
-      <input type="text" id="userInput" placeholder="Type a message...">
-      <button onclick="sendMessage()">Send</button>
-    </div>
+<!-- CHAT WIDGET -->
+<div class="chat-widget variant-coaching" id="chatWidget">
+  
+  <!-- HEADER -->
+  <div class="chat-header">
+    <span>Chat Support</span>
+    <span class="close-btn" onclick="toggleChat()">×</span>
+  </div>
+  
+  <!-- BODY -->
+  <div class="chat-body" id="chatBody">
+    <!-- Messages will appear here -->
   </div>
 
-  <!-- <audio id="notificationSound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3" preload="auto"></audio> -->
+  <!-- QUICK BUTTONS -->
+  <div class="quick-buttons">
+    <button class="quick-btn" onclick="sendQuick('fee')">Fees 💳</button>
+    <button class="quick-btn" onclick="sendQuick('batch')">Batch ⏰</button>
+    <button class="quick-btn" onclick="sendQuick('contact')">Contact 📞</button>
+    <button class="quick-btn" onclick="sendQuick('address')">Address 📍</button>
+    <button class="quick-btn" onclick="sendQuick('payment')">Payment 💰</button>
+  </div>
 
-  <script src="script.js"></script>
+  <!-- FOOTER -->
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleEnter(event)">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
