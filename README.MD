@@ -17,3 +17,9 @@
 
 ## License
 MIT © 2026 YOUR_NAME
+
+## Screenshots
+![Desktop View](images/desktop.png)
+![Mobile View](images/mobile.png)
+![Quick Buttons](images/quick-buttons.png)
+
