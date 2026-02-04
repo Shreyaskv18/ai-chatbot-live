@@ -9,36 +9,37 @@
 <body>
 
 <!-- CHAT TOGGLE BUTTON -->
-<button class="chat-toggle" onclick="toggleChat()">Chat With Us</button>
+<button class="chat-toggle">Chat With Us</button>
 
 <!-- CHAT WIDGET -->
 <div class="chat-widget variant-coaching" id="chatWidget">
-  
+
   <!-- HEADER -->
   <div class="chat-header">
     <span>Chat Support</span>
-    <span class="close-btn" onclick="toggleChat()">×</span>
+    <span class="close-btn">×</span>
   </div>
-  
+
   <!-- BODY -->
   <div class="chat-body" id="chatBody">
-    <!-- Messages will appear here -->
+    <!-- Messages appear here -->
   </div>
 
   <!-- QUICK BUTTONS -->
   <div class="quick-buttons">
-    <button class="quick-btn" onclick="sendQuick('fee')">Fees 💳</button>
-    <button class="quick-btn" onclick="sendQuick('batch')">Batch ⏰</button>
-    <button class="quick-btn" onclick="sendQuick('contact')">Contact 📞</button>
-    <button class="quick-btn" onclick="sendQuick('address')">Address 📍</button>
-    <button class="quick-btn" onclick="sendQuick('payment')">Payment 💰</button>
+    <button class="quick-btn" data-msg="fee">Fees 💳</button>
+    <button class="quick-btn" data-msg="batch">Batch ⏰</button>
+    <button class="quick-btn" data-msg="contact">Contact 📞</button>
+    <button class="quick-btn" data-msg="address">Address 📍</button>
+    <button class="quick-btn" data-msg="payment">Payment 💰</button>
   </div>
 
   <!-- FOOTER -->
   <div class="chat-footer">
-    <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleEnter(event)">
-    <button onclick="sendMessage()">Send</button>
+    <input type="text" id="userInput" placeholder="Type your message...">
+    <button id="sendBtn">Send</button>
   </div>
+
 </div>
 
 <script src="script.js"></script>

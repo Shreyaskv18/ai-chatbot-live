@@ -29,6 +29,11 @@ body {
   z-index: 1000;
 }
 
+/* Hide toggle when chat opens */
+.chat-widget.show + .chat-toggle {
+  display: none;
+}
+
 /* CHAT WIDGET */
 .chat-widget {
   position: fixed;
@@ -102,7 +107,6 @@ body {
 /* FOOTER */
 .chat-footer {
   display: flex;
-  flex-direction: column;
   gap: 5px;
   border-top: 1px solid #e5e7eb;
   padding: 5px;
@@ -132,9 +136,18 @@ body {
 }
 
 /* QUICK BUTTONS */
+.quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 5px;
+}
+
 .quick-btn {
-  margin: 2px;
-  padding: 5px 10px;
+  flex: 1 1 48%;
+  text-align: center;
+  margin: 2px 0;
+  padding: 6px 0;
   background: #3b82f6;
   color: white;
   border: none;
@@ -144,7 +157,6 @@ body {
   transition: 0.2s ease;
 }
 
-/* HOVER EFFECTS */
 .chat-toggle:hover,
 .chat-footer button:hover,
 .quick-btn:hover {
@@ -163,8 +175,10 @@ body {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* MOBILE RESPONSIVE */
+/* MOBILE FIXES */
 @media (max-width: 768px) {
+
+  /* Full screen chat */
   .chat-widget {
     width: 100vw;
     height: 100vh;
@@ -172,56 +186,48 @@ body {
     right: 0;
     border-radius: 0;
     max-height: none;
+    display: flex !important;
+    flex-direction: column;
+    z-index: 1000;
   }
 
-  .chat-toggle {
-    bottom: 15px;
-    right: 15px;
-    padding: 12px 18px;
-    font-size: 13px;
+  /* Hide toggle when chat open */
+  .chat-widget.show ~ .chat-toggle {
+    display: none !important;
   }
 
-  .chat-body {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px;
+  /* Footer input + send button full width */
+  .chat-footer {
+    display: flex;
+    gap: 5px;
   }
 
   .chat-footer input {
+    flex: 1;
     font-size: 16px;
     padding: 12px;
+    border-radius: 12px;
   }
 
   .chat-footer button {
-    padding: 0 12px;
-    font-size: 14px;
+    flex-shrink: 0;
+    font-size: 16px;
+    padding: 0 18px;
+    border-radius: 12px;
   }
 
-  .message {
-    max-width: 90%;
+  /* Quick buttons wrap */
+  .quick-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
   }
-}
 
-/* VARIANTS */
-
-/* Variant A: Coaching Institute */
-.variant-coaching .chat-header {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-}
-
-.variant-coaching .user {
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
-}
-
-/* Variant B: E-commerce / Shop Support */
-.variant-ecommerce .chat-header {
-  background: linear-gradient(135deg, #ff6f61, #ff3b30);
-}
-
-.variant-ecommerce .user {
-  background: linear-gradient(135deg, #ff6f61, #ff3b30);
-}
-
-.variant-ecommerce .quick-btn {
-  background: #ff3b30;
+  .quick-btn {
+    flex: 1 1 48%;
+    text-align: center;
+    margin: 2px 0;
+    padding: 6px 0;
+    font-size: 12px;
+  }
 }
