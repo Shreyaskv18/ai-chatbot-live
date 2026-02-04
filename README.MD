@@ -19,7 +19,13 @@
 MIT © 2026 YOUR_NAME
 
 ## Screenshots
-![Desktop View](images/desktop.png)
-![Mobile View](images/mobile.png)
-![Quick Buttons](images/quick-buttons.png)
+
+### Desktop View
+![Desktop](desktop.png)
+
+### Mobile View
+![Mobile](mobile.png)
+
+### Quick Buttons
+![Quick Buttons](quick-buttons.png)
 
