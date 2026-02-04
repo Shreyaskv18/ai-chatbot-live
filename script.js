@@ -1,10 +1,17 @@
+// ================================
+// PREMIUM TIDIO-LIKE CHATBOT JS
+// ================================
+
 const chatWidget = document.getElementById("chatWidget");
 const chatBody = document.getElementById("chatBody");
 const userInput = document.getElementById("userInput");
 const chatToggle = document.querySelector(".chat-toggle");
 const notificationSound = document.getElementById("notificationSound");
 
-// Open / Close Chat with toggle button visibility
+// Soft subtle volume like Tidio
+notificationSound.volume = 0.2;
+
+// Open / Close Chat with button visibility
 function toggleChat() {
   if (chatWidget.style.display === "flex") {
     chatWidget.style.display = "none";
@@ -23,15 +30,26 @@ function sendMessage() {
   addMessage(message, "user");
   userInput.value = "";
 
+  // Bot typing simulation
   setTimeout(() => {
     addTypingIndicator();
+
     setTimeout(() => {
       removeTypingIndicator();
       const reply = getBotReply(message);
       addMessage(reply, "bot");
-      notificationSound.play();
-    }, 1000);
-  }, 200);
+
+      // Play subtle notification sound only for important messages
+      if (
+        reply.toLowerCase().includes("human agent") ||
+        reply.toLowerCase().includes("contact") ||
+        reply.toLowerCase().includes("urgent")
+      ) {
+        notificationSound.play();
+      }
+
+    }, 1200); // typing delay
+  }, 300);
 }
 
 // Press Enter
@@ -63,7 +81,9 @@ function removeTypingIndicator() {
   if (typing) typing.remove();
 }
 
-// Bot Logic
+// ================================
+// BOT LOGIC
+// ================================
 function getBotReply(msg) {
   msg = msg.toLowerCase();
 
@@ -83,7 +103,7 @@ function getBotReply(msg) {
     return "Share your phone number, our team will call you within 2 hours. ☎️";
   }
   if (msg.includes("order") || msg.includes("refund") || msg.includes("return") || msg.includes("cancel")) {
-    return "Refunds processed in 5–7 working days. Order tracking info after you share ID. 📦";
+    return "Refunds processed in 5–7 working days. Order tracking info available after you share ID. 📦";
   }
   if (msg.includes("delivery") || msg.includes("shipping")) {
     return "Delivery: 3–5 working days. Tracking number provided once shipped. 🚚";
@@ -92,10 +112,13 @@ function getBotReply(msg) {
     return "Support available 7am–10pm daily. Response within 1–2 hours. 🛎️";
   }
 
+  // fallback for unknown queries
   return "Thanks for your message! Our human agent will reply shortly. 😊";
 }
 
-// Quick buttons
+// ================================
+// QUICK BUTTONS
+// ================================
 const quickReplies = ["Fees", "Batch", "Contact", "Address", "Refund"];
 quickReplies.forEach(q => {
   const btn = document.createElement("button");
