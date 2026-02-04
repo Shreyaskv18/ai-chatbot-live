@@ -1,7 +1,3 @@
-/* ===============================
-   PREMIUM CHATBOT FINAL CSS
-=============================== */
-
 * {
   margin: 0;
   padding: 0;
@@ -26,6 +22,7 @@ body {
   font-size: 14px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
   transition: 0.2s ease;
+  z-index: 1000;
 }
 
 /* CHAT WIDGET */
@@ -42,6 +39,7 @@ body {
   flex-direction: column;
   overflow: hidden;
   animation: fadeIn 0.3s ease-in-out;
+  z-index: 999;
 }
 
 /* HEADER */
@@ -119,13 +117,6 @@ body {
   transition: 0.2s ease;
 }
 
-/* HOVER EFFECTS */
-.chat-toggle:hover,
-.chat-footer button:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
-}
-
 /* ANIMATIONS */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.9); }
@@ -137,11 +128,14 @@ body {
   to { transform: translateY(0); opacity: 1; }
 }
 
-
-
+/* ===============================
+   MOBILE RESPONSIVE
+=============================== */
 @media (max-width: 768px) {
+
+  /* Full screen chat widget */
   .chat-widget {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     bottom: 0;
     right: 0;
@@ -149,6 +143,7 @@ body {
     max-height: none;
   }
 
+  /* Chat button smaller */
   .chat-toggle {
     bottom: 15px;
     right: 15px;
@@ -156,12 +151,26 @@ body {
     font-size: 13px;
   }
 
+  /* Chat body scroll */
   .chat-body {
     flex: 1;
     overflow-y: auto;
+    padding: 10px;
   }
 
+  /* Footer input */
   .chat-footer input {
     font-size: 16px;
+    padding: 12px;
+  }
+
+  .chat-footer button {
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  /* Messages width adjust */
+  .message {
+    max-width: 90%;
   }
 }

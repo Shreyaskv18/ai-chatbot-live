@@ -28,9 +28,7 @@ function sendMessage() {
 
 // Press Enter
 function handleEnter(event) {
-  if (event.key === "Enter") {
-    sendMessage();
-  }
+  if (event.key === "Enter") sendMessage();
 }
 
 // Add message to UI
@@ -40,17 +38,16 @@ function addMessage(text, sender) {
   div.innerText = text;
   chatBody.appendChild(div);
 
-  // Smooth scroll for mobile + desktop
+  // Scroll smoothly on mobile + desktop
   div.scrollIntoView({ behavior: "smooth", block: "end" });
 }
 
 // ================================
-// SMART BOT LOGIC
+// BOT LOGIC
 // ================================
 function getBotReply(userMessage) {
   const msg = userMessage.toLowerCase();
 
-  // PAYMENT / FEES
   if (
     msg.includes("payment") ||
     msg.includes("pay") ||
@@ -60,62 +57,50 @@ function getBotReply(userMessage) {
     msg.includes("cost") ||
     msg.includes("amount") ||
     msg.includes("charges")
-  ) {
-    return "Our fees start from ₹25,000. We accept online payments via UPI, Card & Netbanking. EMI options available.";
-  }
+  ) return "Our fees start from ₹25,000. We accept online payments via UPI, Card & Netbanking. EMI options available.";
 
-  // COURSES / PROGRAMS
   if (
     msg.includes("course") ||
     msg.includes("classes") ||
     msg.includes("program")
-  ) {
-    return "We offer NEET, JEE, Foundation, Crash courses & online classes. You can book a free trial session.";
-  }
+  ) return "We offer NEET, JEE, Foundation, Crash courses & online classes. Book a free trial session.";
 
-  // BATCH / TIMINGS
-  if (msg.includes("batch") || msg.includes("timing") || msg.includes("time")) {
-    return "Morning: 7am–10am | Evening: 5pm–8pm | Weekend batches also available.";
-  }
+  if (
+    msg.includes("batch") ||
+    msg.includes("timing") ||
+    msg.includes("time")
+  ) return "Morning: 7am–10am | Evening: 5pm–8pm | Weekend batches available.";
 
-  // ADDRESS / LOCATION
   if (
     msg.includes("address") ||
     msg.includes("location") ||
     msg.includes("where")
-  ) {
-    return "We are located in Mysuru city centre, near the bus stand. Google Maps link: [InsertLinkHere]";
-  }
+  ) return "We are located in Mysuru city centre, near the bus stand. Google Maps link: [InsertLinkHere]";
 
-  // CONTACT / CALL
   if (
     msg.includes("contact") ||
     msg.includes("call") ||
     msg.includes("phone") ||
     msg.includes("number")
-  ) {
-    return "Please share your phone number. Our team will call you within 2 hours.";
-  }
+  ) return "Please share your phone number. Our team will call you within 2 hours.";
 
-  // ORDER / REFUND / CANCEL
   if (
     msg.includes("order") ||
     msg.includes("refund") ||
     msg.includes("return") ||
     msg.includes("cancel")
-  ) {
-    return "Refunds are processed within 5–7 working days. Order tracking info will be provided once you share your order ID.";
-  }
+  ) return "Refunds processed within 5–7 working days. Order tracking info available once you share the order ID.";
 
-  // DELIVERY / SHIPPING
-  if (msg.includes("delivery") || msg.includes("shipping")) {
-    return "Delivery time is 3–5 working days. You will get a tracking number once shipped.";
-  }
+  if (
+    msg.includes("delivery") ||
+    msg.includes("shipping")
+  ) return "Delivery time is 3–5 working days. Tracking number will be provided once shipped.";
 
-  // SUPPORT / HELP
-  if (msg.includes("support") || msg.includes("help") || msg.includes("team")) {
-    return "Our support team is available 7am–10pm daily. We respond within 1–2 hours.";
-  }
+  if (
+    msg.includes("support") ||
+    msg.includes("help") ||
+    msg.includes("team")
+  ) return "Support team available 7am–10pm daily. Response within 1–2 hours.";
 
   return "Thanks for your message! Our human agent will reply shortly.";
 }
@@ -136,7 +121,4 @@ quickReplies.forEach((q) => {
   document.querySelector(".chat-footer").appendChild(btn);
 });
 
-// ================================
-// EVENTS
-// ================================
 userInput.addEventListener("keypress", handleEnter);
