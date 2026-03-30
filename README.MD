@@ -16,7 +16,7 @@
 - HTML, CSS, JS (Vanilla)
 
 ## License
-MIT © 2026 YOUR_NAME
+MIT © 2026 SHREYAS KV
 
 ## Screenshots
 
